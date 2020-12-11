@@ -21,15 +21,19 @@ setPosition();
 function setPosition(position) {
     // Here you can change your position
     // You can use https://www.latlong.net/ to get it! (I use San Francisco as an example)
-    let latitude = 33.717472;
-    let longitude = -117.831146;
+    //let latitude = 33.717472;
+    //let longitude = -117.831146;
 
-    getWeather(latitude, longitude);
+    //getWeather(latitude, longitude);
+	
+	cityName = "Orange";
+	getWeather(cityName);
 }
 
 // Get the Weather data
-function getWeather(latitude, longitude) {
-    let api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`;
+function getWeather(cityName) {
+    //let api = "https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}";
+	let api = "api.openweathermap.org/data/2.5/weather?q=Orange&appid=8bc32ed041a1c8525d9abfabde4dcb89";
 
     console.log(api);
 
@@ -51,7 +55,7 @@ function getWeather(latitude, longitude) {
 
 // Display Weather info
 function displayWeather() {
-    iconElement.innerHTML = `<img src="icons/OneDark/${weather.iconId}.png"/>`;
-    tempElement.innerHTML = `${weather.temperature.value}°<span class="darkfg">${tempUnit}</span>`;
+    iconElement.innerHTML = "<img src="icons/OneDark/${weather.iconId}.png"/>";
+    tempElement.innerHTML = "${weather.temperature.value}°<span class="darkfg">${tempUnit}</span>";
     descElement.innerHTML = weather.description;
 }
